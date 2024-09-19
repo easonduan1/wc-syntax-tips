@@ -1,24 +1,23 @@
 {
-  "publisher": "antfu",
-  "name": "ext-name",
-  "displayName": "ext-name",
-  "version": "0.0.0",
+  "publisher": "easonduan1",
+  "name": "wc-syntax-tips",
+  "displayName": "wc-syntax-tips",
+  "version": "0.0.1",
   "private": true,
   "packageManager": "pnpm@9.7.1",
-  "description": "",
-  "author": "Anthony Fu <anthonyfu117@hotmail.com>",
+  "description": "Syntax Tips For Web Components",
+  "author": "3251421610@qq.com",
   "license": "MIT",
-  "funding": "https://github.com/sponsors/antfu",
-  "homepage": "https://github.com/antfu/ext-name#readme",
+  "homepage": "https://github.com/easonduan1/wc-syntax-tips#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/antfu/ext-name"
+    "url": "https://github.com/easonduan1/wc-syntax-tips"
   },
   "bugs": {
-    "url": "https://github.com/antfu/ext-name/issues"
+    "url": "https://github.com/easonduan1/wc-syntax-tips/issues"
   },
   "sponsor": {
-    "url": "https://github.com/sponsors/antfu"
+    "url": "https://github.com/sponsors/easonduan1"
   },
   "categories": [
     "Other"
@@ -33,17 +32,29 @@
   "engines": {
     "vscode": "^1.92.0"
   },
-  "activationEvents": [
-    "onStartupFinished"
-  ],
   "contributes": {
-    "commands": [],
     "configuration": {
       "type": "object",
-      "title": "ext-name",
-      "properties": {}
+      "title": "WC Syntax Tips",
+      "properties": {
+        "syntaxSupportPlugin.enabledLanguages": {
+          "type": "array",
+          "default": [
+            "javascript",
+            "typescript",
+            "html"
+          ],
+          "description": "Enable syntax support for these files."
+        }
+      }
     }
   },
+  "activationEvents": [
+    "onDidChangeTextDocument",
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:html"
+  ],
   "scripts": {
     "build": "tsup src/index.ts --external vscode",
     "dev": "nr build --watch",
